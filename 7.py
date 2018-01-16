@@ -54,7 +54,7 @@ while True:
                 contact = client.getContact(op.param2)
                 image = "http://dl.profile.line-cdn.net/" + contact.pictureStatus
                 client.sendImageWithURL(op.param1,image)
-                client.sendText(op.param1,"Hallo kak  "+client.getContact(op.param2).displayName +"\nSELAMAT DATANG DI ROOM "+ str(ginfo.name) +"\nJNGN LUPA ISI BIODATA DI NOTE YG TELAH DI SEDIAKAN "+"\n"SERTA MASUKAN SS KELOLOSAN KE ALBUM")
+                client.sendText(op.param1,"Hallo kak  "+client.getContact(op.param2).displayName +"\nSELAMAT DATANG DI ROOM "+ str(ginfo.name) +"\nJNGN LUPA ISI BIODATA DI NOTE YG TELAH DI SEDIAKAN "+"\nSERTA MASUKAN SS KELOLOSAN KE ALBUM")
             if op.type == 25:
                 msg = op.message
                 text = msg.text
