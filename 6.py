@@ -6,8 +6,8 @@ from gtts import gTTS
 from googletrans import Translator
 
 #client = LineClient()
-client = LineClient(id='email kamu', passwd='pasword kamu')
-#client = LineClient(authToken='AUTHTOKEN')
+#client = LineClient(id='email kamu', passwd='pasword kamu')
+client = LineClient(authToken='ISITOKEN')
 client.log("Auth Token : " + str(client.authToken))
 
 channel = LineChannel(client)
@@ -40,7 +40,7 @@ while True:
                     if msg.toType == 2:
                         may = client.getProfile().mid
                         if may in str(msg.contentMetadata) and 'MENTION' in str(msg.contentMetadata):
-                            pilih = ['yang tag saya kangen?','ada apa ini? ko di tag?','duhh kena tag, dianya kesepian kali yah','gk usah tag, gift tikel aja']
+                            pilih = ['yang tag saya berarti kangen','duhh kena tag, kangen yah','yang di tag masih tidur','yang di tag lg make up, biar cantik dikit','jngn tag dulu, tanggung lg beol (>.<)']
                             rslt = random.choice(pilih)
                             client.sendText(msg.to, str(rslt))
                         else:
@@ -54,7 +54,7 @@ while True:
                 contact = client.getContact(op.param2)
                 image = "http://dl.profile.line-cdn.net/" + contact.pictureStatus
                 client.sendImageWithURL(op.param1,image)
-                client.sendText(op.param1,"Hay    "+client.getContact(op.param2).displayName +"\nWelcome to"+"\nGroup》》"+ str(ginfo.name))
+                client.sendText(op.param1,"Hallo kak  "+client.getContact(op.param2).displayName +"\nSELAMAT DATANG DI ROOM "+ str(ginfo.name) +"\nJNGN LUPA ISI BIODATA DI NOTE YG TELAH DI SEDIAKAN "+"\n"SERTA MASUKAN SS KELOLOSAN KE ALBUM")
             if op.type == 25:
                 msg = op.message
                 text = msg.text
@@ -148,13 +148,13 @@ while True:
                                     client.sendText(receiver, x)
                                 except Exception as e:
                                     client.sendText(receiver, str(e))
-                            elif "image:" in msg.text.lower():
-                                try:
-                                    query = msg.text.replace("image:", "")
-                                    images = client.image_search(query)
-                                    client.sendImageWithURL(receiver, images)
-                                except Exception as e:
-                                    client.sendText(receiver, str(e))
+                            #elif "image:" in msg.text.lower():
+                                #try:
+                                    #query = msg.text.replace("image:", "")
+                                    #images = client.image_search(query)
+                                    #client.sendImageWithURL(receiver, images)
+                                #except Exception as e:
+                                    #client.sendText(receiver, str(e))
                             elif 'say:' in msg.text.lower():
                                 try:
                                     isi = msg.text.lower().replace('say:','')
@@ -197,7 +197,7 @@ while True:
                                 client.sendText(receiver, "TestSpeed")
                                 elapsed_time = time.time() - start
                                 client.sendText(receiver, "%sdetik" % (elapsed_time))
-                            elif 'spic' in text.lower():
+                            elif 'sp' in text.lower():
                                 try:
                                     key = eval(msg.contentMetadata["MENTION"])
                                     u = key["MENTIONEES"][0]["M"]
@@ -208,7 +208,7 @@ while True:
                                         client.sendImageWithURL(receiver, 'http://dl.profile.line.naver.jp/'+a)
                                 except Exception as e:
                                     client.sendText(receiver, str(e))
-                            elif 'scover' in text.lower():
+                            elif 'sc' in text.lower():
                                 try:
                                     key = eval(msg.contentMetadata["MENTION"])
                                     u = key["MENTIONEES"][0]["M"]
@@ -269,7 +269,7 @@ while True:
                                         nm5 += [nama[m]]
                                     client.mention(receiver, nm5)             
                                 client.sendText(receiver, "Members :"+str(jml))
-                            elif text.lower() == 'ceksider':
+                            elif text.lower() == 'hai':
                                 try:
                                     del cctv['point'][receiver]
                                     del cctv['sidermem'][receiver]
@@ -279,7 +279,7 @@ while True:
                                 cctv['point'][receiver] = msg.id
                                 cctv['sidermem'][receiver] = ""
                                 cctv['cyduk'][receiver]=True
-                            elif text.lower() == 'offread':
+                            elif text.lower() == 'ngintip':
                                 if msg.to in cctv['point']:
                                     cctv['cyduk'][receiver]=False
                                     client.sendText(receiver, cctv['sidermem'][msg.to])
@@ -346,13 +346,13 @@ while True:
                                     client.sendText(receiver, x)
                                 except Exception as e:
                                     client.sendText(receiver, str(e))
-                            elif "image:" in msg.text.lower():
-                                try:
-                                    query = msg.text.replace("image:", "")
-                                    images = client.image_search(query)
-                                    client.sendImageWithURL(receiver, images)
-                                except Exception as e:
-                                    client.sendText(receiver, str(e))
+                            #elif "image:" in msg.text.lower():
+                                #try:
+                                    #query = msg.text.replace("image:", "")
+                                    #images = client.image_search(query)
+                                    #client.sendImageWithURL(receiver, images)
+                                #except Exception as e:
+                                    #client.sendText(receiver, str(e))
                             elif 'say:' in msg.text.lower():
                                 try:
                                     isi = msg.text.lower().replace('say:','')
@@ -395,7 +395,7 @@ while True:
                                 client.sendText(receiver, "TestSpeed")
                                 elapsed_time = time.time() - start
                                 client.sendText(receiver, "%sdetik" % (elapsed_time))
-                            elif 'spic' in text.lower():
+                            elif 'sp' in text.lower():
                                 try:
                                     key = eval(msg.contentMetadata["MENTION"])
                                     u = key["MENTIONEES"][0]["M"]
@@ -406,7 +406,7 @@ while True:
                                         client.sendImageWithURL(receiver, 'http://dl.profile.line.naver.jp/'+a)
                                 except Exception as e:
                                     client.sendText(receiver, str(e))
-                            elif 'scover' in text.lower():
+                            elif 'sc' in text.lower():
                                 try:
                                     key = eval(msg.contentMetadata["MENTION"])
                                     u = key["MENTIONEES"][0]["M"]
