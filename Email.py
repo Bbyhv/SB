@@ -6,8 +6,8 @@ from gtts import gTTS
 from googletrans import Translator
 
 #client = LineClient()
-#client = LineClient(id='email kamu', passwd='pasword kamu')
-client = LineClient(authToken='EoS02ORbL90zuRZbcmP4.qF09O2f5la8k8iTKqk0KHa.TYTcKX/LW/lo7tRbyWKTtGvARikbOJn2RgRlAzvN3zs=')
+client = LineClient(id='email kamu', passwd='pasword kamu')
+#client = LineClient(authToken='Tokennya')
 client.log("Auth Token : " + str(client.authToken))
 
 channel = LineChannel(client)
