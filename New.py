@@ -256,7 +256,7 @@ while True:
                                         test = st[i]
                                         result = test['post']['postInfo']['postId']
                                         channel.like(str(sender), str(result), likeType=random.choice(typel))
-                                        channel.comment(str(sender), str(result), 'Auto Like by Mehooy')
+                                        channel.comment(str(sender), str(result), 'Auto Like by 666')
                                     client.sendText(receiver, 'Done Like+Comment '+str(len(st))+' Post From' + str(s))
                                 except Exception as e:
                                     client.sendText(receiver, str(e))
