@@ -5,9 +5,9 @@ import json, time, random, tempfile, os, sys
 from gtts import gTTS
 from googletrans import Translator
 
-#client = LineClient()
+client = LineClient()
 #client = LineClient(id='email kamu', passwd='pasword kamu')
-client = LineClient(authToken='ISITOKEN')
+#client = LineClient(authToken='ISITOKEN')
 client.log("Auth Token : " + str(client.authToken))
 
 channel = LineChannel(client)
